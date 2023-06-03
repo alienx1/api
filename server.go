@@ -36,5 +36,5 @@ func main() {
 		AllowCredentials: true,
 		MaxAge:           1 * time.Hour,
 	}))
-	r.Run()
+	r.Run(":80")
 }
