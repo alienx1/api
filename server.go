@@ -6,7 +6,6 @@ import (
 
 	"api/router"
 	"fmt"
-	"time"
 
 	"github.com/gin-contrib/cors"
 	"github.com/jinzhu/gorm"
@@ -28,13 +27,6 @@ func main() {
 		&db.Breeder{},
 	)
 	r := router.Router()
-	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"*"},
-		AllowMethods:     []string{"*"},
-		AllowHeaders:     []string{"*"},
-		ExposeHeaders:    []string{"*"},
-		AllowCredentials: true,
-		MaxAge:           1 * time.Hour,
-	}))
+	r.Use(cors.Default())
 	r.Run(":80")
 }
