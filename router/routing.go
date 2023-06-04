@@ -4,12 +4,16 @@ import (
 	"api/controller"
 	"api/controller/auth"
 	"api/middleware"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
 func Router() *gin.Engine {
 	r := gin.Default()
+	r.GET("/test", func(ctx *gin.Context) {
+		ctx.JSON(http.StatusOK, gin.H{"mss": "test"})
+	})
 	api := r.Group("/api")
 	{
 		admin := api.Group("/admin")
